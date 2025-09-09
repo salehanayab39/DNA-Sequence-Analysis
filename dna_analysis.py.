@@ -1,0 +1,27 @@
+# dna_analysis.py
+# DNA Sequence Analysis: GC Content & Start Codon Detection
+
+# Example dataset: list of DNA sequences
+dna_sequences = [
+    "ATCGTACG",
+    "ATGGCCAA",
+    "TTAACGGA",
+    "ATGTTTGGG",
+    "GCGCGCTA"
+]
+
+# Function to calculate GC content (percentage of G and C bases)
+def gc_content(sequence):
+    g = sequence.count("G")
+    c = sequence.count("C")
+    return (g + c) / len(sequence) * 100
+
+# Function to check if sequence starts with start codon (ATG)
+def has_start_codon(sequence):
+    return sequence.startswith("ATG")
+
+# Run analysis for each sequence
+for seq in dna_sequences:
+    gc = gc_content(seq)
+    start = "Yes" if has_start_codon(seq) else "No"
+    print(f"Sequence: {seq} | GC Content: {gc:.2f}% | Start Codon: {start}")
